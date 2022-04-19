@@ -9,6 +9,7 @@ import it.uniroma3.siw.model.Course;
 
 /*
  * Sistemi Informativi su Web 2021/2022
+
 Homework 1 (Persistenza: JPA)
 Stiamo scrivendo il codice per il sistema informativo di un ente che eroga corsi di formazione. Per ogni corso
 è memorizzato il nome, la data di inizio e la durata in mesi. A ogni corso sono iscritti più allievi. Gli allievi sono
