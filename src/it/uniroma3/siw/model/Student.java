@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,6 +28,8 @@ public class Student {
 	private String placeOfBirth;
 	@ManyToMany(mappedBy = "students")
 	private List<Course> courses;
+	@OneToOne
+	private Address address;
 
 	@OneToOne
 	private Company company;

@@ -1,9 +1,13 @@
 package it.uniroma3.siw.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
 @Entity
 public class Company {
 	 /*
@@ -13,9 +17,10 @@ public class Company {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@ManyToMany(mappedBy = "companies")
+	private List<Address> address;
 	
 	private String denomination;
-	private String address;
 	private String phoneNumber;
 	
 	public String getDenomination() {
@@ -24,10 +29,10 @@ public class Company {
 	public void setDenomination(String denomination) {
 		this.denomination = denomination;
 	}
-	public String getAddress() {
+	public List<Address> getAddress() {
 		return address;
 	}
-	public void setAddress(String address) {
+	public void setAddress(List<Address> address) {
 		this.address = address;
 	}
 	public String getPhoneNumber() {

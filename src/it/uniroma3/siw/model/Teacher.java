@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 @Entity
 public class Teacher {
 	 /*
@@ -25,6 +26,9 @@ public class Teacher {
 	private int vatNumber;
 	@OneToMany(mappedBy = "teacher")
 	private List<Course> courses;
+	@OneToOne
+	private Address address;
+
 	
 	public String getFirstName() {
 		return firstName;
