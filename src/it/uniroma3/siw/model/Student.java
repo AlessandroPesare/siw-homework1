@@ -28,8 +28,6 @@ public class Student {
 	private String placeOfBirth;
 	@ManyToMany(mappedBy = "students")
 	private List<Course> courses;
-	@OneToOne
-	private Address address;
 
 	@OneToOne
 	private Company company;

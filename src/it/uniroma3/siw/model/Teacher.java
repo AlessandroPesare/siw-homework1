@@ -26,8 +26,6 @@ public class Teacher {
 	private int vatNumber;
 	@OneToMany(mappedBy = "teacher")
 	private List<Course> courses;
-	@OneToOne
-	private Address address;
 
 	
 	public String getFirstName() {

@@ -2,11 +2,12 @@ package it.uniroma3.siw.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Company {
@@ -17,8 +18,8 @@ public class Company {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@ManyToMany(mappedBy = "companies")
-	private List<Address> address;
+	@OneToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
+	private Address address;
 	
 	private String denomination;
 	private String phoneNumber;
@@ -29,10 +30,10 @@ public class Company {
 	public void setDenomination(String denomination) {
 		this.denomination = denomination;
 	}
-	public List<Address> getAddress() {
+	public Address getAddress() {
 		return address;
 	}
-	public void setAddress(List<Address> address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 	public String getPhoneNumber() {

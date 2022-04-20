@@ -13,8 +13,6 @@ public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@ManyToMany
-	private List<Address> companies;
 	private String state;
 	private String city;
 	private String street;
