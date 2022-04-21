@@ -1,11 +1,17 @@
 package it.uniroma3.siw.main;
 
+
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+
 
 import it.uniroma3.siw.model.Course;
+import it.uniroma3.siw.model.Teacher;
 
 /*
  * Sistemi Informativi su Web 2021/2022
@@ -42,15 +48,34 @@ public class CourseMain {
 	public static void main(String[] args) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("course-unit");
 		EntityManager em = emf.createEntityManager();
-		Course course = new Course();
+		Course course1 = new Course();
+		Course course2 = new Course();
+
+		Teacher docente = new Teacher();
+		course1.setNome("Basi di Dati 1");
+		course2.setNome("Basi di Dati 2");
+		docente.setFirstName("Paolo Atzeni");
+		docente.getCourses().add(course1);
+		docente.getCourses().add(course2);
 		
 
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-		em.persist(course);
+		em.persist(docente);
 		tx.commit();
-
 		em.close();
+		//viene chiuso e riaperto in questo modo l'entity menager prende i dati dal database
+		//se così non fosse prenderebbe i dati dalla memoria centrale poiché l'entità è stata appena resa persistente
+		em = emf.createEntityManager();
+		TypedQuery<Teacher> selectQuery = em.createQuery("SELECT d FROM Teacher d",Teacher.class);
+		List<Teacher> docenti = selectQuery.getResultList();
+		System.out.println("-----");
+		for(Teacher d: docenti) {
+			for(Course c: d.getCourses()) {
+				System.out.println(c.getNome());
+			}
+		}
+		
 		emf.close();
 	}
 }

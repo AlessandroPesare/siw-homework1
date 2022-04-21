@@ -1,6 +1,7 @@
 package it.uniroma3.siw.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -11,7 +12,21 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 @Entity
 public class Teacher {
-	 /*
+	public Teacher() {
+		this.courses = new ArrayList<>();
+	}
+	 public Teacher(Long id, String firstName, String lastName, LocalDate dateOfBirth, String placeOfBirth,
+			int vatNumber, List<Course> courses) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+		this.placeOfBirth = placeOfBirth;
+		this.vatNumber = vatNumber;
+		this.courses = courses;
+	}
+	/*
 	  * Le scelte che motivano la scelta delle politiche di FETCH e
 	  * CASCADE si trovano nel main.
 	  */

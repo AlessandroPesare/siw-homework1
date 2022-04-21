@@ -1,7 +1,5 @@
 package it.uniroma3.siw.model;
 
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,16 +18,9 @@ public class Company {
 	private Long id;
 	@OneToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
 	private Address address;
-	
-	private String denomination;
+	private String ragioneSociale;
 	private String phoneNumber;
-	
-	public String getDenomination() {
-		return denomination;
-	}
-	public void setDenomination(String denomination) {
-		this.denomination = denomination;
-	}
+
 	public Address getAddress() {
 		return address;
 	}
@@ -41,5 +32,12 @@ public class Company {
 	}
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public String getRagioneSociale() {
+		return ragioneSociale;
+	}
+	public void setRagioneSociale(String ragioneSociale) {
+		this.ragioneSociale = ragioneSociale;
 	}
 }

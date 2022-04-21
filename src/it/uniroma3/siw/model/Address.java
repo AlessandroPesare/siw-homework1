@@ -1,12 +1,9 @@
 package it.uniroma3.siw.model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 
 @Entity
 public class Address {
@@ -17,6 +14,8 @@ public class Address {
 	private String city;
 	private String street;
 	private String zipCode;
+	private String cap;
+	private String numeroCivico;
 	
 	public Long getId() {
 		return id;
@@ -47,6 +46,18 @@ public class Address {
 	}
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
+	}
+	public String getCap() {
+		return cap;
+	}
+	public void setCap(String cap) {
+		this.cap = cap;
+	}
+	public String getNumeroCivico() {
+		return numeroCivico;
+	}
+	public void setNumeroCivico(String numeroCivico) {
+		this.numeroCivico = numeroCivico;
 	}
 	
 }
